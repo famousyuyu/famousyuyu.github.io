@@ -68,6 +68,18 @@
     .card .examples b { color: var(--green); font-weight: 650; }
     .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 23px; }
     .tags span { padding: 6px 10px; border: 1px solid rgba(222, 235, 230, .2); border-radius: 99px; color: #d1d9d5; background: rgba(255,255,255,.04); font-size: 10px; letter-spacing: .04em; }
+
+    .project-link { color: inherit; text-decoration: none; display: block; }
+    .card { min-height: 0; padding: 0; overflow: hidden; }
+    .card-cover { display:block; width:100%; height: clamp(180px, 22vw, 250px); object-fit:cover; background:#1b2730; }
+    .card-body { padding: 22px 25px 24px; display:flex; flex-direction:column; flex:1; }
+    .card h3 { margin-top: 22px; }
+    .card-action { display:flex; align-items:center; justify-content:space-between; margin-top:22px; padding-top:14px; border-top:1px solid var(--line); color:var(--green); font-size:12px; letter-spacing:.04em; }
+    .card-action span:last-child { color:var(--muted); }
+    .project-link:hover .card { transform:translateY(-3px); background-color:#26343a; }
+    .project-link:focus-visible { outline:2px solid var(--green); outline-offset:4px; }
+    @media (max-width:700px) { .card-cover { height:220px; } .card-body { padding:20px 22px 22px; } }
+
     .approach { margin-top: 98px; padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: .75fr 1.25fr; gap: 44px; }
     .approach h2 { margin: 0; font: 500 34px/1.25 var(--serif); }
     .approach p { max-width: 620px; margin: 0; color: #c0cbca; font-size: 14px; line-height: 2; }
@@ -137,42 +149,46 @@
           <p>项目横跨不同场景与制作流程。以下按类型归纳，呈现持续参与的声音工作版图。</p>
         </div>
         <div class="projects">
-          <article class="card">
-            <div class="card-top"><span>01 / LIVE</span><span>现场音乐</span></div>
-            <div>
-              <h3>音乐现场与演出制作</h3>
-              <p>参与交响音乐会、乐团演出、演唱会、音乐节、巡演及户外公演等多种现场项目。</p>
-              <p class="examples"><b>代表项目 / 合作：</b>大雁塔户外公演；程渤智、王建房、马飞、贺国丰等。</p>
-            </div>
-            <div class="tags"><span>现场扩声</span><span>演出录音</span><span>现场混音</span><span>节目制作</span></div>
-          </article>
-          <article class="card">
-            <div class="card-top"><span>02 / CULTURE</span><span>文旅舞台</span></div>
-            <div>
-              <h3>文化演艺与沉浸体验</h3>
-              <p>覆盖历史文化主题演艺、实景演出、城市文化活动与舞台视听内容制作。</p>
-              <p class="examples"><b>代表作品：</b>《赳赳大秦》《焉支花开》《山河瑶》《一梦千年》《华山之瞳》等。</p>
-            </div>
-            <div class="tags"><span>主题演艺</span><span>舞台音频</span><span>文旅项目</span><span>混音</span></div>
-          </article>
-          <article class="card">
-            <div class="card-top"><span>03 / SCREEN</span><span>影视节目</span></div>
-            <div>
-              <h3>影像与电视内容</h3>
-              <p>参与纪录片、影视内容、电视晚会与专题节目的录音、声音编辑及后期制作。</p>
-              <p class="examples"><b>代表作品：</b>《无尽攀登》（金鸡奖最佳纪录片提名）、《中国考古》第一、二季、《脚尖上的信天游》等。</p>
-            </div>
-            <div class="tags"><span>纪录片</span><span>影视声音</span><span>电视节目</span><span>录音混音</span></div>
-          </article>
-          <article class="card">
-            <div class="card-top"><span>04 / INTERACTIVE</span><span>游戏与动画</span></div>
-            <div>
-              <h3>互动娱乐与动画</h3>
-              <p>涉足游戏、动画及相关视听项目，为不同内容形态提供声音制作支持。</p>
-              <p class="examples"><b>代表作品：</b>《崩坏 3》《原神》《阴阳师》《哈利波特》等游戏与动画项目。</p>
-            </div>
-            <div class="tags"><span>游戏音频</span><span>动画</span><span>声音设计</span><span>后期制作</span></div>
-          </article>
+          <a class="project-link" href="projects/live/" aria-label="查看演出现场照片">
+            <article class="card">
+              <img class="card-cover" src="assets/photos/live-05.jpg" alt="演出现场项目现场照片" loading="lazy">
+              <div class="card-body">
+                <div class="card-top"><span>LIVE & PERFORMANCE</span><span>18 张照片</span></div>
+                <div><h3>现场音乐与演出制作</h3><p>乐团、交响音乐会、户外公演与合作音乐人现场。</p></div>
+                <div class="card-action"><span>查看项目照片</span><span>进入 →</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="project-link" href="projects/studio/" aria-label="查看录音与混音照片">
+            <article class="card">
+              <img class="card-cover" src="assets/photos/studio-13.jpg" alt="录音与混音项目现场照片" loading="lazy">
+              <div class="card-body">
+                <div class="card-top"><span>RECORDING & MIXING</span><span>18 张照片</span></div>
+                <div><h3>录音棚与声音制作</h3><p>录音、混音与声音后期的工作片段。</p></div>
+                <div class="card-action"><span>查看项目照片</span><span>进入 →</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="project-link" href="projects/culture/" aria-label="查看文旅演艺照片">
+            <article class="card">
+              <img class="card-cover" src="assets/photos/culture-01.jpg" alt="文旅演艺项目现场照片" loading="lazy">
+              <div class="card-body">
+                <div class="card-top"><span>CULTURAL PERFORMANCE</span><span>8 张照片</span></div>
+                <div><h3>文化演艺与沉浸体验</h3><p>实景演出、主题舞台与文旅项目声音制作。</p></div>
+                <div class="card-action"><span>查看项目照片</span><span>进入 →</span></div>
+              </div>
+            </article>
+          </a>
+          <a class="project-link" href="projects/screen/" aria-label="查看影视现场照片">
+            <article class="card">
+              <img class="card-cover" src="assets/photos/screen-01.jpg" alt="影视现场项目现场照片" loading="lazy">
+              <div class="card-body">
+                <div class="card-top"><span>SCREEN & FILM</span><span>6 张照片</span></div>
+                <div><h3>影视与电视内容</h3><p>纪录片、影视节目及声音后期工作。</p></div>
+                <div class="card-action"><span>查看项目照片</span><span>进入 →</span></div>
+              </div>
+            </article>
+          </a>
         </div>
       </section>
 
