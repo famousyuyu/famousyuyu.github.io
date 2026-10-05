@@ -3,122 +3,160 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f2ec">
-  <meta name="description" content="yuyu 的个人主页。">
-  <title>yuyu — 个人主页</title>
+  <meta name="theme-color" content="#f3f1eb">
+  <meta name="description" content="yuyu 的声音作品与项目经历，涵盖现场音乐、文旅演艺、影视节目与游戏动画。">
+  <title>yuyu — 声音作品集</title>
   <style>
     :root {
       color-scheme: light;
-      --paper: #f4f2ec;
-      --ink: #1f2824;
-      --muted: #65716a;
-      --green: #426653;
-      --line: rgba(31, 40, 36, .15);
+      --paper: #f3f1eb;
+      --ink: #202a25;
+      --muted: #6c756e;
+      --green: #496c55;
+      --line: rgba(32, 42, 37, .16);
       --serif: "Iowan Old Style", "Songti SC", "STSong", "Noto Serif CJK SC", serif;
       --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      min-height: 100vh;
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+    .page { width: min(100% - 48px, 1120px); margin: 0 auto; }
+    header { min-height: 76px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .brand { font-size: 13px; font-weight: 650; letter-spacing: .08em; }
+    nav { display: flex; gap: 30px; font-size: 12px; }
+    nav a { color: var(--muted); text-decoration: none; }
+    nav a:hover { color: var(--green); }
+    main { padding: clamp(70px, 10vw, 116px) 0 94px; }
+    .eyebrow { margin: 0 0 24px; color: var(--green); font-size: 11px; letter-spacing: .19em; text-transform: uppercase; }
+    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 50px; align-items: end; }
+    h1 { margin: 0; font: 500 clamp(68px, 11vw, 124px)/.95 var(--serif); letter-spacing: -.06em; }
+    .role { margin: 27px 0 0; color: var(--green); font-size: 12px; letter-spacing: .13em; }
+    .intro { max-width: 590px; margin: 24px 0 0; color: #49574e; font: clamp(19px, 2.6vw, 25px)/1.7 var(--serif); }
+    .hero-note { justify-self: end; max-width: 315px; padding: 24px 0 4px 24px; border-left: 1px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.9; }
+    .hero-note strong { display: block; margin-bottom: 7px; color: var(--ink); font: 22px var(--serif); }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 72px 0 105px; }
+    .metric { padding: 22px 20px 23px 0; }
+    .metric + .metric { padding-left: 24px; border-left: 1px solid var(--line); }
+    .metric strong { display: block; margin-bottom: 7px; color: var(--green); font: 31px/1.1 var(--serif); }
+    .metric span { color: var(--muted); font-size: 12px; letter-spacing: .04em; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
+    .section-head h2 { margin: 0; font: 500 clamp(34px, 5vw, 52px)/1.1 var(--serif); letter-spacing: -.035em; }
+    .section-head p { max-width: 360px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .card { position: relative; min-height: 238px; padding: 27px 28px 24px; border: 1px solid var(--line); background: rgba(255,255,255,.19); display: flex; flex-direction: column; justify-content: space-between; transition: transform .2s ease, background .2s ease; }
+    .card:hover { transform: translateY(-3px); background: rgba(255,255,255,.48); }
+    .card-top { display: flex; justify-content: space-between; color: var(--green); font-size: 11px; letter-spacing: .12em; }
+    .card-top span:last-child { color: var(--muted); }
+    .card h3 { margin: 29px 0 10px; font: 500 27px/1.25 var(--serif); }
+    .card p { max-width: 440px; margin: 0; color: #5c675f; font-size: 13px; line-height: 1.9; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 23px; }
+    .tags span { padding: 6px 10px; border: 1px solid var(--line); border-radius: 99px; color: var(--muted); font-size: 10px; letter-spacing: .04em; }
+    .approach { margin-top: 98px; padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: .75fr 1.25fr; gap: 44px; }
+    .approach h2 { margin: 0; font: 500 34px/1.25 var(--serif); }
+    .approach p { max-width: 620px; margin: 0; color: #536057; font-size: 14px; line-height: 2; }
+    footer { min-height: 78px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 12px; }
+    @media (max-width: 700px) {
+      .page { width: min(100% - 36px, 1120px); }
+      header { min-height: 66px; }
+      nav { gap: 17px; }
+      main { padding-top: 75px; }
+      .hero { grid-template-columns: 1fr; gap: 34px; }
+      .hero-note { justify-self: start; max-width: 420px; }
+      .metrics { margin: 54px 0 75px; }
+      .metric { padding: 18px 10px 18px 0; }
+      .metric + .metric { padding-left: 12px; }
+      .metric strong { font-size: 26px; }
+      .metric span { font-size: 10px; line-height: 1.6; }
+      .section-head { align-items: start; flex-direction: column; }
+      .projects { grid-template-columns: 1fr; }
+      .card { min-height: 218px; padding: 23px; }
+      .approach { grid-template-columns: 1fr; gap: 18px; margin-top: 72px; }
+      footer { align-items: flex-start; flex-direction: column; justify-content: center; gap: 9px; padding: 18px 0; }
     }
-    .page {
-      width: min(100% - 48px, 1080px);
-      margin: 0 auto;
-    }
-    header {
-      height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--line);
-      font-size: 13px;
-      letter-spacing: .08em;
-    }
-    .mark { font-weight: 650; }
-    .status { color: var(--muted); display: flex; align-items: center; gap: 9px; }
-    .dot { width: 7px; height: 7px; border-radius: 50%; background: #719477; }
-    main { padding: clamp(72px, 13vw, 150px) 0 106px; }
-    .eyebrow {
-      color: var(--green);
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: .16em;
-      margin: 0 0 26px;
-    }
-    h1 {
-      font-family: var(--serif);
-      font-size: clamp(64px, 12vw, 132px);
-      line-height: .98;
-      letter-spacing: -.055em;
-      font-weight: 500;
-      margin: 0;
-    }
-    .intro {
-      max-width: 570px;
-      margin: 34px 0 0;
-      color: #48564e;
-      font-family: var(--serif);
-      font-size: clamp(20px, 3vw, 27px);
-      line-height: 1.65;
-    }
-    .rule { height: 1px; background: var(--line); margin: 76px 0 28px; }
-    .details {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-    }
-    .label { color: var(--muted); font-size: 12px; letter-spacing: .12em; margin: 0 0 14px; }
-    .copy { margin: 0; max-width: 420px; font-size: 15px; line-height: 1.9; }
-    footer {
-      min-height: 78px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 12px;
-    }
-    a { color: var(--green); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-    a:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
-    @media (max-width: 600px) {
-      .page { width: min(100% - 36px, 1080px); }
-      header { height: 64px; }
-      main { padding-top: 84px; padding-bottom: 76px; }
-      .details { grid-template-columns: 1fr; gap: 30px; }
-      .rule { margin-top: 54px; }
-      footer { gap: 16px; align-items: flex-start; flex-direction: column; justify-content: center; padding: 18px 0; }
-    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .card { transition: none; } }
   </style>
 </head>
 <body>
   <div class="page">
     <header>
-      <span class="mark">个人主页</span>
-      <span class="status"><span class="dot" aria-hidden="true"></span>你好，欢迎来访</span>
+      <span class="brand">YUYU / SOUND</span>
+      <nav aria-label="页面导航">
+        <a href="#projects">项目经历</a>
+        <a href="#about">关于</a>
+      </nav>
     </header>
     <main>
-      <p class="eyebrow">Hello, I'm</p>
-      <h1>yuyu<span aria-hidden="true">.</span></h1>
-      <p class="intro">你好，欢迎来到我的小小角落。<br>这里会慢慢记录我正在关注、学习和创造的事。</p>
-      <div class="rule"></div>
-      <section class="details" aria-label="关于我">
+      <section class="hero" aria-labelledby="name">
         <div>
-          <p class="label">关于</p>
-          <p class="copy">我叫 yuyu，正在探索数字世界里的新可能。这个页面是我的个人主页，也会随着新的想法和作品不断更新。</p>
+          <p class="eyebrow">Sound · Recording · Mixing</p>
+          <h1 id="name">yuyu<span aria-hidden="true">.</span></h1>
+          <p class="role">录音 · 混音 · 现场扩声</p>
+          <p class="intro">在现场、舞台与影像之间，捕捉声音的质感与情绪。</p>
         </div>
-        <div>
-          <p class="label">最近</p>
-          <p class="copy">刚开始认识 GitHub，准备在这里分享我的学习过程与小项目。敬请期待。</p>
+        <aside class="hero-note">
+          <strong>声音，是另一种叙事。</strong>
+          从录音与混音，到现场调音和节目制作，参与不同规模、不同语境的声音项目。
+        </aside>
+      </section>
+
+      <section class="metrics" aria-label="项目概览">
+        <div class="metric"><strong>百余场</strong><span>音乐演出与现场项目</span></div>
+        <div class="metric"><strong>多元类型</strong><span>舞台 · 影像 · 互动内容</span></div>
+        <div class="metric"><strong>全流程</strong><span>录音 · 混音 · 现场扩声</span></div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Selected fields</p>
+            <h2 id="projects-title">项目经历</h2>
+          </div>
+          <p>项目横跨不同场景与制作流程。以下按类型归纳，呈现持续参与的声音工作版图。</p>
         </div>
+        <div class="projects">
+          <article class="card">
+            <div class="card-top"><span>01 / LIVE</span><span>现场音乐</span></div>
+            <div>
+              <h3>音乐现场与演出制作</h3>
+              <p>参与交响音乐会、乐团演出、演唱会、音乐节、巡演及户外公演等多种现场项目。</p>
+            </div>
+            <div class="tags"><span>现场扩声</span><span>演出录音</span><span>现场混音</span><span>节目制作</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span>02 / CULTURE</span><span>文旅舞台</span></div>
+            <div>
+              <h3>文化演艺与沉浸体验</h3>
+              <p>覆盖历史文化主题演艺、实景演出、城市文化活动与舞台视听内容制作。</p>
+            </div>
+            <div class="tags"><span>主题演艺</span><span>舞台音频</span><span>文旅项目</span><span>混音</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span>03 / SCREEN</span><span>影视节目</span></div>
+            <div>
+              <h3>影像与电视内容</h3>
+              <p>参与纪录片、影视内容、电视晚会与专题节目的录音、声音编辑及后期制作。</p>
+            </div>
+            <div class="tags"><span>纪录片</span><span>影视声音</span><span>电视节目</span><span>录音混音</span></div>
+          </article>
+          <article class="card">
+            <div class="card-top"><span>04 / INTERACTIVE</span><span>游戏与动画</span></div>
+            <div>
+              <h3>互动娱乐与动画</h3>
+              <p>涉足游戏、动画及相关视听项目，为不同内容形态提供声音制作支持。</p>
+            </div>
+            <div class="tags"><span>游戏音频</span><span>动画</span><span>声音设计</span><span>后期制作</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="approach" id="about" aria-labelledby="about-title">
+        <h2 id="about-title">关于我的工作</h2>
+        <p>我叫 yuyu，是一名声音工作者。工作内容包括录音、混音与现场扩声，项目经验涉及音乐演出、文旅舞台、影视节目以及游戏动画等方向。关注现场沟通、声音细节与不同媒介的表达方式。</p>
       </section>
     </main>
     <footer>
       <span>© <span id="year">2026</span> yuyu</span>
-      <span>用一点好奇心，慢慢搭建。</span>
+      <span>让声音，找到合适的位置。</span>
     </footer>
   </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
